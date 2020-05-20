@@ -24,25 +24,26 @@ class App extends Component {
 
 
   render(){
-    return (<div className="container vh-100">
+    return (<div className="container-fluid vh-100 bg-warning">
 
-      <div className="bg-black w-80 mx-auto p-5">
+      <div className="bg-black rounded mx-auto text-center p-3 bg-white" style={{height:'25%',width:'30%',position:'relative',top:'37%'}}>
       
-        <span className="col-md-12">
-          <i className="fa fa-quote-left mr-2" style={{fontSize:'1.5rem',color:'brown'}} />
+        <p className="col-md-12">
+          <i className="fa fa-quote-left" style={{fontSize:'1.5rem',color:'brown'}} />
           <span className='h2 p-4'>{this.state[1].quote}</span>
-          <i className="fa fa-quote-right ml-2" style={{fontSize:'1.5rem',color:'brown'}} />
+          <i className="fa fa-quote-right" style={{fontSize:'1.5rem',color:'brown'}} />
 
-        </span>
-        <br />
-        <span className='float-right mr-5 py-2'>-{this.state[1].author}</span>
+        </p>
+        
+        <p className='float-right pr-4 font-weight-bold' style={{position:'relative',bottom:'1rem'}}>-{this.state[1].author}</p>
         
         <br />
 
-
-        <button className="btn btn-dark"><i className="fa fa-twitter" style={{fontSize:'1.5rem',color:'white'}}></i></button>
-        <button className="btn btn-dark ml-2" style={{width:'7%'}}><i className="fa fa-tumblr" style={{fontSize:'1.5rem',color:'white'}}></i></button>
-        <button className="btn btn-dark float-right"> New Quote</button>
+        <div className='btn-group w-100'>
+          <button className="btn-dark rounded ml-2 p-0" style={{width:'8%'}}><i className="fa fa-twitter" style={{fontSize:'1.5rem',color:'white'}}></i></button>
+          <button className="btn-dark rounded ml-2 p-0" style={{width:'8%'}}><i className="fa fa-tumblr" style={{fontSize:'1.5rem',color:'white'}}></i></button>
+          <button className="btn-dark float-right ml-auto px-2 py-1 mr-2 rounded" style={{width:'20%'}}><span className="align-center">New Quote</span></button>
+        </div>
       </div>
       
       </div>);
