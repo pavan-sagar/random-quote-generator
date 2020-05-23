@@ -4,6 +4,11 @@
   font-family: 'Raleway';
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  #tweet-quote{
+    width:6rem;
+  }
+}
 
 /* Quote fade out and fade in effect */
 @keyframes text-fade{

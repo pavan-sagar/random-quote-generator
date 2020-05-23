@@ -123,13 +123,13 @@ class App extends Component {
         {/* Buttons */}
         <div className='btn-group w-100'> 
           {/* Twitter button */}
-          <button  className="rounded ml-2 p-0 bg-transition" style={{width:'8%',backgroundColor:this.state.primaryColor}}><a id="tweet-quote" href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${this.state.randomQuote}`}><i className="fa fa-twitter" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
+          <button  className="rounded ml-2 p-0 bg-transition" style={{width:'3rem',backgroundColor:this.state.primaryColor}}><a id="tweet-quote" href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${this.state.randomQuote}`}><i className="fa fa-twitter" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
           
           {/* Tumblr button */}
-          <button className="rounded ml-2 p-0 bg-transition" style={{width:'8%',backgroundColor:this.state.primaryColor}}><a href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Jesus&content=${this.state.randomQuote}buttons&shareSource=tumblr_share_button`}><i className="fa fa-tumblr" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
+          <button className="rounded ml-2 p-0 bg-transition" style={{width:'3rem',backgroundColor:this.state.primaryColor}}><a href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Jesus&content=${this.state.randomQuote}buttons&shareSource=tumblr_share_button`}><i className="fa fa-tumblr" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
           
           {/* New Quote button  */}
-          <button id="new-quote" className="float-right ml-auto px-2 py-1 mr-2 rounded bg-transition" style={{width:'20%',backgroundColor:this.state.primaryColor,color:'white'}} onClick={this.callToSetRandomQuoteAndColor}><span className="align-center">New Quote</span></button>
+          <button id="new-quote" className="float-right ml-auto px-2 py-1 mr-2 rounded bg-transition" style={{width:'6.5rem',backgroundColor:this.state.primaryColor,color:'white'}} onClick={this.callToSetRandomQuoteAndColor}><span className="align-center">New Quote</span></button>
         </div>
       </div>
       
