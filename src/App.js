@@ -4,16 +4,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-
-
-
-
 class App extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-                  
 
                   primaryColor : 'brown',
                   randomQuote:'Every strike brings me closer to the home run',
@@ -22,8 +17,6 @@ class App extends Component {
                   openingQuoteMarkStyle: "fa fa-quote-left bg-transition",
                   closingQuoteMarkStyle: "fa fa-quote-right bg-transition",
                   authorStyle: "float-right pr-4 pt-2 font-weight-normal bg-transition"
-                  
-
                   
                 }
 
@@ -35,7 +28,7 @@ class App extends Component {
 
   
 
-
+// Fetch quotes from API and set a random one to the state
   setRandomQuoteFromApi = async() =>{
     
     let raw_response = await fetch('https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json')
@@ -56,6 +49,8 @@ class App extends Component {
 
   }
       
+
+  // Create a random hsl color code and set it to the state
   setRandomBackgroundColor(){
 
     let hue = Math.random()*360;
@@ -63,14 +58,16 @@ class App extends Component {
     let lightness =  '50%';
 
     let colorString = 'hsl('+hue+','+saturation+','+lightness+')';
-    
 
     this.setState({primaryColor:colorString}) 
 
   }
 
+  // When the 'New Quote' button is clicked, it will internally call the get quote and get random color functions and update the state.
+  // We are also adding the transition class to have the fade effect and removing the class after animation completes via setTimeout
   callToSetRandomQuoteAndColor(){
     
+    // Add transition class to the ui objects like quotation mark, quote and author
     this.setState({
       quoteStyle:this.state.quoteStyle+' quote-transition',
       openingQuoteMarkStyle:this.state.openingQuoteMarkStyle+' quote-transition',
@@ -78,6 +75,9 @@ class App extends Component {
       authorStyle:this.state.authorStyle+' quote-transition',
   
   })
+
+  // Once the fade animation completes, we are removing the transition class in the state.
+  // This is required to achieve the toggle fade effect on every 'New Quote' button click.
     setTimeout(()=>{this.setState({
 
       quoteStyle: "h3 p-4 bg-transition",
@@ -87,23 +87,18 @@ class App extends Component {
 
     })},2200)
 
-    this.setRandomQuoteFromApi();
-    
+    this.setRandomQuoteFromApi(); 
     this.setRandomBackgroundColor();
-   
-
-    
-  }
-
-  componentDidUpdate(prevState,prevProp){
       
   }
 
-  quoteClass="h3 p-4 bg-transition ";
+
   render(){
     
     
-    return (<div className="container-fluid vh-100 bg-transition" style={{backgroundColor:this.state.primaryColor}}>
+    return (
+    
+    <div className="container-fluid vh-100 bg-transition" style={{backgroundColor:this.state.primaryColor}}>
 
       <div className="col-sm-12 col-lg-4 bg-black rounded mx-auto text-center p-3 bg-white quote-container" id="quote-box" style={{height:'auto',position:'relative',top:'37%'}}>
       
@@ -127,13 +122,18 @@ class App extends Component {
 
         {/* Buttons */}
         <div className='btn-group w-100'> 
+          {/* Twitter button */}
           <button  className="rounded ml-2 p-0 bg-transition" style={{width:'8%',backgroundColor:this.state.primaryColor}}><a id="tweet-quote" href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${this.state.randomQuote}`}><i className="fa fa-twitter" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
+          
+          {/* Tumblr button */}
           <button className="rounded ml-2 p-0 bg-transition" style={{width:'8%',backgroundColor:this.state.primaryColor}}><a href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Jesus&content=${this.state.randomQuote}buttons&shareSource=tumblr_share_button`}><i className="fa fa-tumblr" style={{fontSize:'1.5rem',color:'white'}}></i></a></button>
+          
+          {/* New Quote button  */}
           <button id="new-quote" className="float-right ml-auto px-2 py-1 mr-2 rounded bg-transition" style={{width:'20%',backgroundColor:this.state.primaryColor,color:'white'}} onClick={this.callToSetRandomQuoteAndColor}><span className="align-center">New Quote</span></button>
         </div>
       </div>
       
-      </div>);
+    </div>);
   }
 }
 

@@ -5,7 +5,7 @@
 }
 
 
-
+/* Quote fade out and fade in effect */
 @keyframes text-fade{
 
     0% {
@@ -24,7 +24,7 @@
 }
 
 
-/* Main page background color transition */
+/* Main page background color transition effect*/
 .bg-transition {
   transition: background-color 2s ease-in;
   
