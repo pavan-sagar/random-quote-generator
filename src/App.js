@@ -105,7 +105,7 @@ class App extends Component {
     
     return (<div className="container-fluid vh-100 bg-transition" style={{backgroundColor:this.state.primaryColor}}>
 
-      <div className="bg-black rounded mx-auto text-center p-3 bg-white quote-container" id="quote-box" style={{height:'auto',width:'30%',position:'relative',top:'37%'}}>
+      <div className="col-sm-12 col-lg-4 bg-black rounded mx-auto text-center p-3 bg-white quote-container" id="quote-box" style={{height:'auto',position:'relative',top:'37%'}}>
       
         <p className="col-md-12">
 
