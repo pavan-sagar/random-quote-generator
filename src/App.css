@@ -10,6 +10,10 @@
   }
 }
 
+#new-quote:active{
+  outline:none;
+}
+
 /* Quote fade out and fade in effect */
 @keyframes text-fade{
 
